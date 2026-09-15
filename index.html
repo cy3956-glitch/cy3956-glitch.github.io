@@ -3,205 +3,254 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="PCY Apps 공식 개발자 웹사이트">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="PCY Apps 공식 개발자 웹사이트. FieldLog, BabyLog, PickGo, 1초컷 등 Android 앱을 소개합니다.">
 <title>PCY Apps | Android Developer</title>
 <style>
 :root{
-  --bg:#07111f; --panel:#0f1c2e; --panel2:#13243a; --text:#f7fbff;
-  --muted:#9db1c7; --line:rgba(255,255,255,.08); --accent:#52a7ff;
-  --accent2:#7ce0ff; --ok:#76e3a5; --shadow:0 24px 60px rgba(0,0,0,.28);
+  --bg:#06101c;--bg2:#091727;--panel:#0e2034;--panel2:#102943;
+  --line:rgba(255,255,255,.095);--text:#f7fbff;--muted:#9eb2c6;
+  --blue:#3aa6ff;--cyan:#67e4ff;--shadow:0 28px 80px rgba(0,0,0,.34)
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0; font-family:Inter, Pretendard, "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color:var(--text); background:
-    radial-gradient(circle at top left, rgba(82,167,255,.15), transparent 36%),
-    radial-gradient(circle at 90% 10%, rgba(124,224,255,.10), transparent 28%),
-    linear-gradient(180deg,#07111f,#091525 48%,#07111f);
-  min-height:100vh;
+  margin:0;color:var(--text);
+  font-family:Inter,Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(800px 440px at 12% -4%,rgba(33,125,255,.22),transparent 70%),
+    radial-gradient(680px 420px at 94% 8%,rgba(103,228,255,.12),transparent 72%),
+    linear-gradient(180deg,#06101c 0%,#081421 48%,#06101c 100%);
+  min-height:100vh
 }
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1120px;margin:auto;padding:0 22px}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
 .nav{
-  position:sticky;top:0;z-index:30;backdrop-filter:blur(18px);
-  background:rgba(7,17,31,.76);border-bottom:1px solid var(--line)
+  position:sticky;top:0;z-index:50;background:rgba(6,16,28,.77);
+  backdrop-filter:blur(20px);border-bottom:1px solid var(--line)
 }
-.navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
-.logo{
-  width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
-  background:linear-gradient(135deg,#1e78ff,#54d7ff);box-shadow:0 10px 26px rgba(30,120,255,.28);
-  font-weight:900;color:white
+.navin{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:13px;font-weight:900;font-size:20px}
+.brand img{width:46px;height:46px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+.navlinks{display:flex;align-items:center;gap:25px;color:#b7c8d8;font-weight:700;font-size:14px}
+.navlinks a:hover{color:white}
+.hero{padding:88px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:46px;align-items:center}
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border-radius:999px;
+  color:#bdeeff;background:rgba(103,228,255,.075);border:1px solid rgba(103,228,255,.17);
+  font-size:13px;font-weight:800
 }
-.navlinks{display:flex;gap:18px;color:#bed0e2;font-size:14px}
-.hero{padding:92px 0 68px}
-.badge{
-  display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid rgba(124,224,255,.18);
-  background:rgba(124,224,255,.07);border-radius:999px;color:#bfefff;font-size:13px
-}
-h1{font-size:clamp(42px,7vw,76px);line-height:1.02;margin:22px 0 20px;letter-spacing:-2.5px}
-.hero p{max-width:720px;color:var(--muted);font-size:18px;line-height:1.75;margin:0}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.dot{width:7px;height:7px;border-radius:50%;background:#63e3ff;box-shadow:0 0 14px #63e3ff}
+h1{font-size:clamp(48px,6.7vw,78px);line-height:1.02;letter-spacing:-3.6px;margin:22px 0}
+.grad{background:linear-gradient(90deg,#fff 4%,#86ccff 45%,#72ebff);-webkit-background-clip:text;color:transparent}
+.hero p{font-size:18px;color:var(--muted);line-height:1.8;max-width:720px;margin:0}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:13px;
-  border:1px solid var(--line);background:#12233a;color:white;font-weight:700
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:0 17px;border-radius:14px;font-weight:850;font-size:14px;
+  border:1px solid var(--line);background:rgba(255,255,255,.05)
 }
-.btn.primary{background:linear-gradient(135deg,#217dff,#53c5ff);border:none}
-.section{padding:24px 0 72px}
-.section h2{font-size:30px;margin:0 0 8px}
-.section .lead{color:var(--muted);margin:0 0 24px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.card{
-  background:linear-gradient(180deg,rgba(19,36,58,.94),rgba(12,25,42,.94));
-  border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow);
-  transition:.22s ease;position:relative;overflow:hidden
+.btn.primary{border:0;background:linear-gradient(135deg,#2384ff,#52d2ff);box-shadow:0 12px 28px rgba(35,132,255,.23)}
+.hero-card{
+  position:relative;min-height:360px;border:1px solid var(--line);border-radius:30px;
+  background:linear-gradient(145deg,rgba(20,47,75,.88),rgba(8,21,36,.94));
+  box-shadow:var(--shadow);overflow:hidden;display:grid;place-items:center
 }
-.card:hover{transform:translateY(-4px);border-color:rgba(124,224,255,.28)}
-.card::after{
-  content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-60px;top:-60px;
-  background:radial-gradient(circle,rgba(82,167,255,.18),transparent 68%)
+.hero-card:before,.hero-card:after{
+  content:"";position:absolute;border-radius:50%;filter:blur(2px)
 }
-.apphead{display:flex;gap:16px;align-items:center;margin-bottom:18px}
-.appicon{
-  width:66px;height:66px;border-radius:18px;display:grid;place-items:center;font-size:26px;font-weight:900;
-  border:1px solid rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)
+.hero-card:before{width:260px;height:260px;background:rgba(36,132,255,.18);left:-80px;bottom:-100px}
+.hero-card:after{width:220px;height:220px;background:rgba(85,226,255,.12);right:-65px;top:-60px}
+.hero-logo{width:180px;height:180px;border-radius:42px;z-index:2;box-shadow:0 30px 55px rgba(0,0,0,.36)}
+.hero-label{z-index:2;text-align:center;margin-top:-38px}
+.hero-label b{display:block;font-size:24px}
+.hero-label span{display:block;color:#92abc1;font-size:13px;margin-top:6px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.stat{padding:9px 12px;border:1px solid var(--line);border-radius:12px;color:#b6cadb;background:rgba(255,255,255,.035);font-size:12px;font-weight:750}
+.section{padding:35px 0 76px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px}
+.section h2{font-size:34px;letter-spacing:-1.4px;margin:0}
+.section .lead{margin:7px 0 0;color:var(--muted)}
+.apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.app{
+  border:1px solid var(--line);border-radius:26px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(17,39,64,.96),rgba(10,25,42,.96));
+  box-shadow:var(--shadow);transition:.22s ease
 }
-.appicon.field{background:linear-gradient(135deg,#193a75,#34a7ff)}
-.appicon.baby{background:linear-gradient(135deg,#ff9ebe,#ffd0df)}
-.appicon.pick{background:linear-gradient(135deg,#6237ff,#b85cff)}
-.appicon.one{background:linear-gradient(135deg,#0d1727,#ffc83d);color:#101010}
-.apptitle{font-size:23px;font-weight:850;margin:0}
-.tag{color:#8ea8c0;font-size:13px;margin-top:5px}
-.card p{color:#adc0d2;line-height:1.65;margin:0 0 18px}
-.links{display:flex;gap:10px;flex-wrap:wrap}
-.linkpill{
-  padding:9px 12px;border-radius:11px;background:rgba(255,255,255,.055);
-  border:1px solid var(--line);font-size:13px;color:#d8e7f4
+.app:hover{transform:translateY(-4px);border-color:rgba(103,228,255,.22)}
+.cover{height:214px;position:relative;overflow:hidden;background:#0b1828}
+.cover img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.93) contrast(1.03)}
+.cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,12,21,.02),rgba(7,17,31,.72))}
+.app-body{padding:22px}
+.app-title-row{display:flex;align-items:center;gap:15px;margin-top:-62px;position:relative;z-index:2}
+.icon{width:84px;height:84px;border-radius:22px;object-fit:cover;border:1px solid rgba(255,255,255,.18);box-shadow:0 14px 30px rgba(0,0,0,.34)}
+.app-title h3{font-size:27px;margin:0;letter-spacing:-.7px}
+.app-title small{display:block;color:#93afc6;margin-top:5px;font-size:13px}
+.app-desc{color:#adc0d2;line-height:1.7;margin:20px 0 18px;min-height:57px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{font-size:11px;font-weight:800;color:#a8c5dc;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.045);border:1px solid var(--line)}
+.card-actions{display:flex;gap:9px;flex-wrap:wrap}
+.mini{padding:10px 13px;border-radius:12px;border:1px solid var(--line);font-size:13px;font-weight:800;background:rgba(255,255,255,.04)}
+.mini:hover{background:rgba(255,255,255,.085)}
+.about-card{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:20px;
+  border:1px solid var(--line);border-radius:26px;padding:28px;
+  background:linear-gradient(135deg,rgba(18,42,68,.88),rgba(9,24,40,.9))
 }
-.info{
-  display:grid;grid-template-columns:1fr 1fr;gap:18px;
-  background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:20px;padding:22px
+.about-card h3{font-size:25px;margin:0 0 10px}.about-card p{color:var(--muted);line-height:1.75;margin:0}
+.contact{display:grid;gap:10px}
+.contact-item{padding:15px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.035)}
+.contact-item span{display:block;color:#7f98af;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.8px}
+.contact-item b{display:block;margin-top:6px;font-size:14px}
+footer{border-top:1px solid var(--line);padding:32px 0 44px;color:#728aa1;font-size:13px}
+.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:850px){
+  .hero-grid,.about-card{grid-template-columns:1fr}.hero-card{min-height:300px}
+  .apps{grid-template-columns:1fr}.navlinks{display:none}.hero{padding-top:58px}
 }
-.info h3{margin:0 0 7px;font-size:16px}
-.info p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}
-footer{border-top:1px solid var(--line);padding:34px 0 50px;color:#7f94aa;font-size:13px}
-.subhero{padding:64px 0 34px}
-.subhero h1{font-size:48px}
-.content{
-  background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:22px;padding:28px;
-  line-height:1.8;color:#c2d1df;margin-bottom:64px
-}
-.content h2,.content h3{color:white;margin-top:28px}
-.content ul{padding-left:20px}
-.notice{background:rgba(82,167,255,.08);border:1px solid rgba(82,167,255,.16);padding:14px 16px;border-radius:14px}
-@media (max-width:760px){
-  .navlinks{display:none}.hero{padding-top:64px}.grid,.info{grid-template-columns:1fr}
-  h1{letter-spacing:-1.5px}.subhero h1{font-size:38px}
+@media(max-width:520px){
+  .wrap{width:min(100% - 26px,1180px)}h1{letter-spacing:-2px}.cover{height:180px}
+  .app-title h3{font-size:23px}.icon{width:74px;height:74px;border-radius:19px}
+  .section h2{font-size:29px}.hero p{font-size:16px}
 }
 </style>
-
 </head>
 <body>
 <nav class="nav">
   <div class="wrap navin">
-    <a class="brand" href="/"><div class="logo">P</div><div>PCY Apps</div></a>
+    <a class="brand" href="/">
+      <img src="/assets/pcy-logo.webp" alt="PCY Apps 로고">
+      <span>PCY Apps</span>
+    </a>
     <div class="navlinks">
-      <a href="/#apps">앱</a>
-      <a href="/#about">개발자 정보</a>
+      <a href="#apps">앱</a>
+      <a href="#developer">개발자 정보</a>
       <a href="mailto:cy3956@gmail.com">문의</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="wrap">
-    <div class="badge">● Independent Android Developer</div>
-    <h1>기록과 일상을<br>더 편리하게.</h1>
-    <p>PCY Apps는 현장 기록, 육아 기록, 일상 선택과 미니게임처럼 실제 생활에서 자주 쓰는 기능을 더 간단하고 편리하게 만드는 Android 앱을 개발합니다.</p>
-    <div class="actions">
-      <a class="btn primary" href="#apps">앱 둘러보기</a>
-      <a class="btn" href="mailto:cy3956@gmail.com">개발자 문의</a>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker"><span class="dot"></span> Android Apps · PCY</div>
+      <h1>기록하고, 선택하고,<br><span class="grad">더 편리하게.</span></h1>
+      <p>PCY Apps는 현장 기록부터 육아 기록, 일상 선택과 순발력 게임까지 실제 생활에서 자주 쓰는 기능을 더 간단하고 보기 좋게 만드는 Android 앱을 개발합니다.</p>
+      <div class="actions">
+        <a class="btn primary" href="#apps">앱 둘러보기 →</a>
+        <a class="btn" href="mailto:cy3956@gmail.com">개발자 문의</a>
+      </div>
+      <div class="stats">
+        <span class="stat">FieldLog</span><span class="stat">BabyLog</span><span class="stat">PickGo</span><span class="stat">1초컷</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img class="hero-logo" src="/assets/pcy-logo.webp" alt="PCY">
+      <div class="hero-label"><b>PCY Apps</b><span>Useful ideas, built into apps.</span></div>
     </div>
   </div>
 </header>
 
+<main>
 <section class="section" id="apps">
   <div class="wrap">
-    <h2>Apps</h2>
-    <p class="lead">현재 개발 및 운영 중인 주요 앱입니다.</p>
+    <div class="section-head">
+      <div><h2>Apps</h2><p class="lead">현재 개발 및 운영 중인 주요 Android 앱입니다.</p></div>
+    </div>
 
-    <div class="grid">
-      <article class="card">
-        <div class="apphead">
-          <div class="appicon field">F</div>
-          <div><div class="apptitle">FieldLog</div><div class="tag">현장 · 정비 · 작업 기록</div></div>
-        </div>
-        <p>현장 사진, 메모, 작업자, 파트, 관리대상 및 정비 이력을 한곳에서 기록하고 검색·통계로 관리하는 현장 기록 앱입니다.</p>
-        <div class="links">
-          <a class="linkpill" href="/fieldlog/">앱 소개</a>
-          <a class="linkpill" href="/fieldlog/privacy.html">개인정보처리방침</a>
+    <div class="apps">
+      <article class="app">
+        <div class="cover"><img src="/assets/fieldlog-cover.webp" alt="FieldLog 소개 이미지"></div>
+        <div class="app-body">
+          <div class="app-title-row">
+            <img class="icon" src="/assets/fieldlog-icon.webp" alt="FieldLog 아이콘">
+            <div class="app-title"><h3>FieldLog</h3><small>현장 · 정비 · 작업 기록</small></div>
+          </div>
+          <p class="app-desc">현장 사진, 메모, 작업자, 파트, 관리대상 및 정비 이력을 한곳에서 기록하고 검색·통계로 관리하는 현장 기록 앱입니다.</p>
+          <div class="chips"><span class="chip">현장 기록</span><span class="chip">사진</span><span class="chip">검색·통계</span><span class="chip">백업</span></div>
+          <div class="card-actions">
+            <a class="mini" href="/fieldlog/">앱 소개</a>
+            <a class="mini" href="/fieldlog/privacy.html">개인정보처리방침</a>
+            <a class="mini" href="https://play.google.com/store/apps/details?id=com.cyfieldlog.app" target="_blank" rel="noopener">Google Play ↗</a>
+          </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="apphead">
-          <div class="appicon baby">B</div>
-          <div><div class="apptitle">BabyLog</div><div class="tag">임신 · 육아 · 성장 · 일상 기록</div></div>
-        </div>
-        <p>수유, 수면, 성장, 사진과 메모 등 아이의 일상을 기록하고 날짜별로 확인할 수 있도록 만든 육아 기록 앱입니다.</p>
-        <div class="links">
-          <a class="linkpill" href="/babylog/">앱 소개</a>
-          <a class="linkpill" href="/babylog/privacy.html">개인정보처리방침</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="apphead">
-          <div class="appicon pick">P</div>
-          <div><div class="apptitle">PickGo</div><div class="tag">랜덤 선택 · 일상 추천 · 게임</div></div>
-        </div>
-        <p>일상 속 선택을 빠르게 돕고, 다양한 랜덤 게임과 후보 관리 기능을 제공하는 선택 도우미 앱입니다.</p>
-        <div class="links">
-          <a class="linkpill" href="/pickgo/">앱 소개</a>
-          <a class="linkpill" href="/pickgo/privacy.html">개인정보처리방침</a>
+      <article class="app">
+        <div class="cover"><img src="/assets/babylog-cover.webp" alt="BabyLog 소개 이미지"></div>
+        <div class="app-body">
+          <div class="app-title-row">
+            <img class="icon" src="/assets/babylog-icon.webp" alt="BabyLog 이미지">
+            <div class="app-title"><h3>BabyLog</h3><small>임신 · 육아 · 성장 · 일상 기록</small></div>
+          </div>
+          <p class="app-desc">수유, 수면, 성장, 사진과 메모 등 아이의 일상을 기록하고 날짜별로 확인할 수 있도록 만든 육아 기록 앱입니다.</p>
+          <div class="chips"><span class="chip">수유</span><span class="chip">수면</span><span class="chip">성장</span><span class="chip">사진 기록</span></div>
+          <div class="card-actions">
+            <a class="mini" href="/babylog/">앱 소개</a>
+            <a class="mini" href="/babylog/privacy.html">개인정보처리방침</a>
+            <a class="mini" href="https://play.google.com/store/apps/details?id=com.cylog.babylog" target="_blank" rel="noopener">Google Play ↗</a>
+          </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="apphead">
-          <div class="appicon one">1s</div>
-          <div><div class="apptitle">1초컷</div><div class="tag">순발력 · 타이밍 미니게임</div></div>
+      <article class="app">
+        <div class="cover"><img src="/assets/pickgo-cover.webp" alt="PickGo 소개 이미지"></div>
+        <div class="app-body">
+          <div class="app-title-row">
+            <img class="icon" src="/assets/pickgo-icon.webp" alt="PickGo 아이콘">
+            <div class="app-title"><h3>PickGo</h3><small>랜덤 선택 · 일상 추천 · 게임</small></div>
+          </div>
+          <p class="app-desc">일상 속 선택을 빠르게 돕고, 후보 관리와 다양한 랜덤 게임을 함께 사용할 수 있는 선택 도우미 앱입니다.</p>
+          <div class="chips"><span class="chip">MY PICK</span><span class="chip">랜덤</span><span class="chip">버블 저장</span><span class="chip">미니게임</span></div>
+          <div class="card-actions">
+            <a class="mini" href="/pickgo/">앱 소개</a>
+            <a class="mini" href="/pickgo/privacy.html">개인정보처리방침</a>
+          </div>
         </div>
-        <p>짧고 빠르게 즐길 수 있는 타이밍 중심의 순발력 미니게임 앱입니다.</p>
-        <div class="links">
-          <a class="linkpill" href="/one-sec/">앱 소개</a>
-          <a class="linkpill" href="/one-sec/privacy.html">개인정보처리방침</a>
+      </article>
+
+      <article class="app">
+        <div class="cover"><img src="/assets/onesec-cover.webp" alt="1초컷 소개 이미지"></div>
+        <div class="app-body">
+          <div class="app-title-row">
+            <img class="icon" src="/assets/onesec-icon.webp" alt="1초컷 아이콘">
+            <div class="app-title"><h3>1초컷</h3><small>순발력 · 타이밍 미니게임</small></div>
+          </div>
+          <p class="app-desc">1초에 맞춰 멈추는 짧고 빠른 도전과 기록 경쟁을 중심으로 가볍게 즐길 수 있는 순발력 게임입니다.</p>
+          <div class="chips"><span class="chip">1초 챌린지</span><span class="chip">기록</span><span class="chip">타이밍</span><span class="chip">순발력</span></div>
+          <div class="card-actions">
+            <a class="mini" href="/one-sec/">앱 소개</a>
+            <a class="mini" href="/one-sec/privacy.html">개인정보처리방침</a>
+            <a class="mini" href="https://play.google.com/store/apps/details?id=com.cyoneseccut.app" target="_blank" rel="noopener">Google Play ↗</a>
+          </div>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section" id="about">
+<section class="section" id="developer">
   <div class="wrap">
-    <h2>Developer</h2>
-    <p class="lead">Google Play 개발자 웹사이트 및 앱 지원 정보</p>
-    <div class="info">
+    <div class="about-card">
       <div>
-        <h3>개발자</h3>
-        <p>PCY Apps<br>Android Application Developer</p>
+        <h3>PCY Apps</h3>
+        <p>작은 아이디어도 실제로 매일 사용할 수 있는 앱이 되도록 만듭니다. 이 사이트는 PCY Apps의 공식 Google Play 개발자 웹사이트이며, 앱 소개와 개인정보처리방침 및 지원 정보를 제공합니다.</p>
       </div>
-      <div>
-        <h3>문의</h3>
-        <p><a href="mailto:cy3956@gmail.com">cy3956@gmail.com</a><br>앱 관련 문의 및 지원</p>
+      <div class="contact">
+        <div class="contact-item"><span>Developer</span><b>PCY Apps · Android Application Developer</b></div>
+        <div class="contact-item"><span>Support</span><b><a href="mailto:cy3956@gmail.com">cy3956@gmail.com</a></b></div>
       </div>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
-  <div class="wrap">© 2026 PCY Apps · Contact: <a href="mailto:cy3956@gmail.com">cy3956@gmail.com</a></div>
+  <div class="wrap footerin">
+    <span>© 2026 PCY Apps. All rights reserved.</span>
+    <span>Android Apps · Support: cy3956@gmail.com</span>
+  </div>
 </footer>
 </body>
 </html>
