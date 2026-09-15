@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#07111f">
-<meta name="description" content="PCY Apps 공식 개발자 웹사이트. FieldLog, BabyLog, PickGo, 1초컷 등 Android 앱을 소개합니다.">
-<title>PCY Apps | Android Developer</title>
+<meta name="description" content="PCY Studio 공식 개발자 웹사이트. FieldLog, BabyLog, PickGo, 1초컷 등 Android 앱을 소개합니다.">
+<title>PCY Studio | Android Developer</title>
 <style>
 :root{
   --bg:#06101c;--bg2:#091727;--panel:#0e2034;--panel2:#102943;
@@ -90,6 +90,15 @@ h1{font-size:clamp(48px,6.7vw,78px);line-height:1.02;letter-spacing:-3.6px;margi
 .app-desc{color:#adc0d2;line-height:1.7;margin:20px 0 18px;min-height:57px}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 .chip{font-size:11px;font-weight:800;color:#a8c5dc;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.045);border:1px solid var(--line)}
+.feature-highlight{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:2px 0 18px
+}
+.feature-box{
+  padding:12px 13px;border-radius:14px;border:1px solid rgba(103,228,255,.14);
+  background:linear-gradient(135deg,rgba(35,132,255,.09),rgba(103,228,255,.045))
+}
+.feature-box b{display:block;font-size:13px;color:#eaf7ff;margin-bottom:5px}
+.feature-box span{display:block;font-size:11px;line-height:1.5;color:#90abc1}
 .card-actions{display:flex;gap:9px;flex-wrap:wrap}
 .mini{padding:10px 13px;border-radius:12px;border:1px solid var(--line);font-size:13px;font-weight:800;background:rgba(255,255,255,.04)}
 .mini:hover{background:rgba(255,255,255,.085)}
@@ -110,6 +119,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 44px;color:#728aa1;font-s
   .apps{grid-template-columns:1fr}.navlinks{display:none}.hero{padding-top:58px}
 }
 @media(max-width:520px){
+  .feature-highlight{grid-template-columns:1fr}
   .wrap{width:min(100% - 26px,1180px)}h1{letter-spacing:-2px}.cover{height:180px}
   .app-title h3{font-size:23px}.icon{width:74px;height:74px;border-radius:19px}
   .section h2{font-size:29px}.hero p{font-size:16px}
@@ -120,8 +130,8 @@ footer{border-top:1px solid var(--line);padding:32px 0 44px;color:#728aa1;font-s
 <nav class="nav">
   <div class="wrap navin">
     <a class="brand" href="/">
-      <img src="/assets/pcy-logo.webp" alt="PCY Apps 로고">
-      <span>PCY Apps</span>
+      <img src="/assets/pcy-logo.webp" alt="PCY Studio 로고">
+      <span>PCY Studio</span>
     </a>
     <div class="navlinks">
       <a href="#apps">앱</a>
@@ -136,7 +146,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 44px;color:#728aa1;font-s
     <div>
       <div class="kicker"><span class="dot"></span> Android Apps · PCY</div>
       <h1>기록하고, 선택하고,<br><span class="grad">더 편리하게.</span></h1>
-      <p>PCY Apps는 현장 기록부터 육아 기록, 일상 선택과 순발력 게임까지 실제 생활에서 자주 쓰는 기능을 더 간단하고 보기 좋게 만드는 Android 앱을 개발합니다.</p>
+      <p>PCY Studio는 현장 기록부터 육아 기록, 일상 선택과 순발력 게임까지 실제 생활에서 자주 쓰는 기능을 더 간단하고 보기 좋게 만드는 Android 앱을 개발합니다.</p>
       <div class="actions">
         <a class="btn primary" href="#apps">앱 둘러보기 →</a>
         <a class="btn" href="mailto:cy3956@gmail.com">개발자 문의</a>
@@ -147,7 +157,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 44px;color:#728aa1;font-s
     </div>
     <div class="hero-card">
       <img class="hero-logo" src="/assets/pcy-logo.webp" alt="PCY">
-      <div class="hero-label"><b>PCY Apps</b><span>Useful ideas, built into apps.</span></div>
+      <div class="hero-label"><b>PCY Studio</b><span>Useful ideas, built into apps.</span></div>
     </div>
   </div>
 </header>
@@ -198,11 +208,22 @@ footer{border-top:1px solid var(--line);padding:32px 0 44px;color:#728aa1;font-s
         <div class="cover"><img src="/assets/pickgo-cover.webp" alt="PickGo 소개 이미지"></div>
         <div class="app-body">
           <div class="app-title-row">
-            <img class="icon" src="/assets/pickgo-icon.webp" alt="PickGo 아이콘">
+            <img class="icon" src="/assets/pickgo-icon.png" alt="PickGo 아이콘">
             <div class="app-title"><h3>PickGo</h3><small>랜덤 선택 · 일상 추천 · 게임</small></div>
           </div>
-          <p class="app-desc">일상 속 선택을 빠르게 돕고, 후보 관리와 다양한 랜덤 게임을 함께 사용할 수 있는 선택 도우미 앱입니다.</p>
-          <div class="chips"><span class="chip">MY PICK</span><span class="chip">랜덤</span><span class="chip">버블 저장</span><span class="chip">미니게임</span></div>
+          <p class="app-desc">웹 링크와 스크린샷을 빠르게 저장하고 정리하며, 일상 속 후보 선택과 다양한 랜덤 게임까지 함께 사용할 수 있는 선택 도우미 앱입니다.</p>
+          <div class="chips">
+            <span class="chip">🔗 링크 저장</span>
+            <span class="chip">📸 스크린샷 저장</span>
+            <span class="chip">MY PICK</span>
+            <span class="chip">랜덤</span>
+            <span class="chip">버블 저장</span>
+            <span class="chip">미니게임</span>
+          </div>
+          <div class="feature-highlight" aria-label="PickGo 핵심 기능">
+            <div class="feature-box"><b>🔗 링크 저장</b><span>웹페이지·영상·쇼핑·맛집 링크를 빠르게 보관</span></div>
+            <div class="feature-box"><b>📸 스크린샷 저장</b><span>중요한 화면을 캡처해 PickGo 안에서 함께 정리</span></div>
+          </div>
           <div class="card-actions">
             <a class="mini" href="/pickgo/">앱 소개</a>
             <a class="mini" href="/pickgo/privacy.html">개인정보처리방침</a>
@@ -234,11 +255,11 @@ footer{border-top:1px solid var(--line);padding:32px 0 44px;color:#728aa1;font-s
   <div class="wrap">
     <div class="about-card">
       <div>
-        <h3>PCY Apps</h3>
-        <p>작은 아이디어도 실제로 매일 사용할 수 있는 앱이 되도록 만듭니다. 이 사이트는 PCY Apps의 공식 Google Play 개발자 웹사이트이며, 앱 소개와 개인정보처리방침 및 지원 정보를 제공합니다.</p>
+        <h3>PCY Studio</h3>
+        <p>작은 아이디어도 실제로 매일 사용할 수 있는 앱이 되도록 만듭니다. 이 사이트는 PCY Studio의 공식 Google Play 개발자 웹사이트이며, 앱 소개와 개인정보처리방침 및 지원 정보를 제공합니다.</p>
       </div>
       <div class="contact">
-        <div class="contact-item"><span>Developer</span><b>PCY Apps · Android Application Developer</b></div>
+        <div class="contact-item"><span>Developer</span><b>PCY Studio · Android Application Developer</b></div>
         <div class="contact-item"><span>Support</span><b><a href="mailto:cy3956@gmail.com">cy3956@gmail.com</a></b></div>
       </div>
     </div>
@@ -248,7 +269,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 44px;color:#728aa1;font-s
 
 <footer>
   <div class="wrap footerin">
-    <span>© 2026 PCY Apps. All rights reserved.</span>
+    <span>© 2026 PCY Studio. All rights reserved.</span>
     <span>Android Apps · Support: cy3956@gmail.com</span>
   </div>
 </footer>
