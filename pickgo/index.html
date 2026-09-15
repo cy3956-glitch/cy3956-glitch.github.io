@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="일상 속 후보 선택과 다양한 랜덤 게임을 한곳에서 즐길 수 있도록 만든 Android 앱입니다.">
+<title>PickGo | PCY Apps</title>
+<style>
+:root{
+  --bg:#07111f; --panel:#0f1c2e; --panel2:#13243a; --text:#f7fbff;
+  --muted:#9db1c7; --line:rgba(255,255,255,.08); --accent:#52a7ff;
+  --accent2:#7ce0ff; --ok:#76e3a5; --shadow:0 24px 60px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:Inter, Pretendard, "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color:var(--text); background:
+    radial-gradient(circle at top left, rgba(82,167,255,.15), transparent 36%),
+    radial-gradient(circle at 90% 10%, rgba(124,224,255,.10), transparent 28%),
+    linear-gradient(180deg,#07111f,#091525 48%,#07111f);
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:auto;padding:0 22px}
+.nav{
+  position:sticky;top:0;z-index:30;backdrop-filter:blur(18px);
+  background:rgba(7,17,31,.76);border-bottom:1px solid var(--line)
+}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+.logo{
+  width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#1e78ff,#54d7ff);box-shadow:0 10px 26px rgba(30,120,255,.28);
+  font-weight:900;color:white
+}
+.navlinks{display:flex;gap:18px;color:#bed0e2;font-size:14px}
+.hero{padding:92px 0 68px}
+.badge{
+  display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid rgba(124,224,255,.18);
+  background:rgba(124,224,255,.07);border-radius:999px;color:#bfefff;font-size:13px
+}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.02;margin:22px 0 20px;letter-spacing:-2.5px}
+.hero p{max-width:720px;color:var(--muted);font-size:18px;line-height:1.75;margin:0}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:13px;
+  border:1px solid var(--line);background:#12233a;color:white;font-weight:700
+}
+.btn.primary{background:linear-gradient(135deg,#217dff,#53c5ff);border:none}
+.section{padding:24px 0 72px}
+.section h2{font-size:30px;margin:0 0 8px}
+.section .lead{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{
+  background:linear-gradient(180deg,rgba(19,36,58,.94),rgba(12,25,42,.94));
+  border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow);
+  transition:.22s ease;position:relative;overflow:hidden
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(124,224,255,.28)}
+.card::after{
+  content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-60px;top:-60px;
+  background:radial-gradient(circle,rgba(82,167,255,.18),transparent 68%)
+}
+.apphead{display:flex;gap:16px;align-items:center;margin-bottom:18px}
+.appicon{
+  width:66px;height:66px;border-radius:18px;display:grid;place-items:center;font-size:26px;font-weight:900;
+  border:1px solid rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)
+}
+.appicon.field{background:linear-gradient(135deg,#193a75,#34a7ff)}
+.appicon.baby{background:linear-gradient(135deg,#ff9ebe,#ffd0df)}
+.appicon.pick{background:linear-gradient(135deg,#6237ff,#b85cff)}
+.appicon.one{background:linear-gradient(135deg,#0d1727,#ffc83d);color:#101010}
+.apptitle{font-size:23px;font-weight:850;margin:0}
+.tag{color:#8ea8c0;font-size:13px;margin-top:5px}
+.card p{color:#adc0d2;line-height:1.65;margin:0 0 18px}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.linkpill{
+  padding:9px 12px;border-radius:11px;background:rgba(255,255,255,.055);
+  border:1px solid var(--line);font-size:13px;color:#d8e7f4
+}
+.info{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:20px;padding:22px
+}
+.info h3{margin:0 0 7px;font-size:16px}
+.info p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}
+footer{border-top:1px solid var(--line);padding:34px 0 50px;color:#7f94aa;font-size:13px}
+.subhero{padding:64px 0 34px}
+.subhero h1{font-size:48px}
+.content{
+  background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:22px;padding:28px;
+  line-height:1.8;color:#c2d1df;margin-bottom:64px
+}
+.content h2,.content h3{color:white;margin-top:28px}
+.content ul{padding-left:20px}
+.notice{background:rgba(82,167,255,.08);border:1px solid rgba(82,167,255,.16);padding:14px 16px;border-radius:14px}
+@media (max-width:760px){
+  .navlinks{display:none}.hero{padding-top:64px}.grid,.info{grid-template-columns:1fr}
+  h1{letter-spacing:-1.5px}.subhero h1{font-size:38px}
+}
+</style>
+
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="/"><div class="logo">P</div><div>PCY Apps</div></a>
+    <div class="navlinks">
+      <a href="/#apps">앱</a>
+      <a href="/#about">개발자 정보</a>
+      <a href="mailto:cy3956@gmail.com">문의</a>
+    </div>
+  </div>
+</nav>
+
+    <header class="subhero">
+      <div class="wrap">
+        <div class="badge">PCY Apps</div>
+        <h1>PickGo</h1>
+        <p>선택이 어려울 때, 빠르게 Pick</p>
+      </div>
+    </header>
+    <main class="wrap">
+      <section class="content">
+        <h2>앱 소개</h2>
+        <p>일상 속 후보 선택과 다양한 랜덤 게임을 한곳에서 즐길 수 있도록 만든 Android 앱입니다.</p>
+        <h2>주요 기능</h2>
+        <ul><li>일상 후보 및 폴더 관리</li><li>랜덤 선택 기능</li><li>다양한 미니게임</li><li>사용자 콘텐츠 추가 및 관리</li></ul>
+        <div class="notice">Google Play 등록 및 앱 지원을 위한 공식 개발자 웹페이지입니다.</div>
+        <div class="actions">
+          <a class="btn primary" href="/pickgo/privacy.html">개인정보처리방침</a>
+          <a class="btn" href="/">개발자 홈페이지</a>
+        </div>
+      </section>
+    </main>
+    
+<footer>
+  <div class="wrap">© 2026 PCY Apps · Contact: <a href="mailto:cy3956@gmail.com">cy3956@gmail.com</a></div>
+</footer>
+</body>
+</html>
