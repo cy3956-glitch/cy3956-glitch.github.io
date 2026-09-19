@@ -337,3 +337,28 @@ footer{
   object-fit:cover;
   display:block;
 }
+
+/* 2026-09-19 header-logo hard fix */
+.topbar .brand .brand-logo-img{
+  width:38px !important;
+  height:38px !important;
+  max-width:38px !important;
+  max-height:38px !important;
+  min-width:38px !important;
+  min-height:38px !important;
+  object-fit:cover !important;
+  border-radius:11px !important;
+  display:block !important;
+  flex:0 0 38px !important;
+}
+@media (max-width:720px){
+  .topbar .brand .brand-logo-img{
+    width:34px !important;
+    height:34px !important;
+    max-width:34px !important;
+    max-height:34px !important;
+    min-width:34px !important;
+    min-height:34px !important;
+    flex-basis:34px !important;
+  }
+}
