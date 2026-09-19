@@ -362,3 +362,42 @@ footer{
     flex-basis:34px !important;
   }
 }
+
+/* 2026-09-19: actual PickGo bubble asset */
+.floating-bubble{
+  width:96px !important;
+  height:96px !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:0 14px 42px rgba(40,80,255,.35) !important;
+  padding:0 !important;
+  overflow:visible !important;
+  border-radius:26px !important;
+}
+.floating-bubble img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  display:block !important;
+  border-radius:26px !important;
+}
+.floating-bubble .bubble-p,
+.floating-bubble .bubble-check{
+  display:none !important;
+}
+@media (max-width:960px){
+  .floating-bubble{
+    width:78px !important;
+    height:78px !important;
+    border-radius:22px !important;
+  }
+  .floating-bubble img{border-radius:22px !important;}
+}
+@media (max-width:720px){
+  .floating-bubble{
+    width:68px !important;
+    height:68px !important;
+    border-radius:20px !important;
+  }
+  .floating-bubble img{border-radius:20px !important;}
+}

@@ -1,18 +1,32 @@
-PCY Studio 홈페이지 - Google Play 패키지 직접 연결 최종 수정본
-========================================================
+PCY Studio 홈페이지 - 실제 아이콘 수정본
+=====================================
 
-모든 앱은 검색 페이지가 아니라 각 앱의 패키지명 상세 페이지로 바로 연결됩니다.
+수정 내용
+1. 브라우저 탭 아이콘(favicon)
+   - 임시 P 아이콘 제거
+   - PCY Studio 실제 로고로 변경
 
-- PickGo   -> com.cypickgo.app
-- FieldLog -> com.cyfieldlog.app
-- BabyLog  -> com.cylog.babylog
-- CarLog   -> com.cylog.carlog
+2. 메인 오른쪽 PickGo 버블
+   - 임시 P + 체크 버블 제거
+   - 현재 PickGo V0.15.230 프로젝트의 실제 기본 버블
+     android/app/src/main/res/drawable-nodpi/pickgo_bubble.png 사용
 
-따라서 홈페이지에서 Google Play 버튼을 누르면 비슷한 이름의 다른 앱 검색결과가 아니라
-해당 앱의 상세 페이지로 바로 이동합니다.
+3. PickGo 앱 카드
+   - 현재 PickGo V0.15.230의 실제 앱 아이콘
+     assets/icon/pickgo_icon_512.png 사용
 
-업로드:
-1. ZIP 압축 해제
-2. index.html / styles.css / script.js / assets 폴더 전체를 저장소 루트에 덮어쓰기
-3. Commit changes
-4. 반영 후 Ctrl+F5
+4. Google Play 연결
+   - 검색 링크 없음
+   - PickGo   com.cypickgo.app
+   - FieldLog com.cyfieldlog.app
+   - BabyLog  com.cylog.babylog
+   - CarLog   com.cylog.carlog
+   패키지 상세페이지로 바로 연결
+
+업로드
+- ZIP 압축 해제
+- index.html / styles.css / script.js / assets 전체를 저장소 루트에 덮어쓰기
+- Commit changes
+- 사이트에서 Ctrl + F5
+
+※ favicon은 브라우저 캐시가 강해서 탭을 닫았다 다시 열면 더 확실히 바뀝니다.
