@@ -1,5 +1,9 @@
-// Windows 실행본을 GitHub Releases 등에 업로드한 뒤 URL을 설정하세요.
-// 실제 실행본이 없으면 null을 유지합니다. 업데이트 패치 ZIP은 연결하지 마세요.
+// 꼬마법사 PC 테스트 버전. 모바일 출시 후 android 주소를 입력하세요.
 window.PCY_DOWNLOADS = {
-  mage: { windows: null, android: null, version: null, size: null }
+  mage: {
+    windows: "https://github.com/cy3956-glitch/cy3956-glitch.github.io/releases/download/mage-v0.1.0/_PC.zip",
+    android: null,
+    version: "0.1.0 · PC 테스트",
+    size: null
+  }
 };
